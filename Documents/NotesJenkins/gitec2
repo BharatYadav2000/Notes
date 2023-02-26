@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM-Stage'){
+                steps {
+                    echo 'Pulling Source Code from Version Control'
+                    sh "rm -rf testproject"
+                    sh "git clone https://github.com/ChiranjeebDash/testproject.git"
+                    echo 'Pulling Source Code completed successfully !!'
+                }
+            }
+        stage('Process') {
+            steps {
+                sh "pwd"
+                sshagent(['ssh-key']){
+                    sh "scp -o stricthostkeychecking=no testproject/index.html ubuntu@54.170.171.90:/home/ubuntu/aws"
+                }
+            }
+        }
+    }
+}

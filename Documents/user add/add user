@@ -1,0 +1,14 @@
+Users add to local system or ec2 :-
+
+sudo adduser yadav                      :add user with password  
+sudo adduser --disabled-password yadav  : add user without password
+
+sudo usermod -aG sudo yadav             :to give sudo access to use....it will add user to sudo group...by default in starting user addeded to same group name
+             OR
+sudo nano /etc/sudoers                  : add->  yadav ALL=(ALL:ALL) ALL
+             OR
+sudo visudo                             : it also open in same location /etc/sudoers
+
+sudo groups yadav                       : to check user group
+ 
+sudo deluser yadav                      : to delete user

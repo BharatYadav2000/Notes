@@ -1,0 +1,21 @@
+---
+- name: create folder and files using command Ansible
+  hosts: all
+  become: true
+  
+  tasks:
+
+    - name: Switch to new user
+      command: mkdir /home/ubuntu/fol1
+
+    - name: 
+      command: chmod 700 /home/ubuntu/fol1
+
+    - name: 
+      command: touch /home/ubuntu/fol1/authorized_keys
+
+    - name: 
+      command: chmod 600 /home/ubuntu/fol1/authorized_keys
+
+    - name: 
+      command: cat /home/bharat.yadav/Desktop/file1  >> /home/ubuntu/fol1/file1

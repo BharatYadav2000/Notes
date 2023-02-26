@@ -1,0 +1,15 @@
+vim commands:-
+
+esc   i  : to write in file
+esc   o  : to write to new line
+esc   :wq or x : to save and exit
+esc   :w  : to save only
+esc   :q! : exit without saving
+esc   :/name : to find word in file (PRESS n to go to next word)
+esc    d (press double d) : to cut particular line(put cursor on particular line & press double d)
+esc    p  : to paste cutted line (cut line by double press d & paste by p)
+esc    u   : undo
+esc   :%s/name1/name2 : replace all name in file
+esc   :%s/name1/name2/gc : replace name by selecting one by  one
+esc   :%s/name1/name2/gi : replace all name both upper and lower cases in file
+esc   v : visual mode to select multiple lines for copy and delete(press d to delete selected lines & y then esc then p to paste selected lines)

@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install rsyslog package
+      yum:
+        name: rsyslog
+        state: present
+    - name: Configure rsyslog to send logs to Graylog
+      copy:
+        src: /etc/rsyslog.d/awslog.conf       //location of conf file in local system
+        dest: /etc/rsyslog.d/awslog.conf      //location of conf file to store in ec2 
+      notify: restart rsyslog
+  handlers:
+    - name: restart rsyslog
+      service:
+        name: rsyslog
+        state: restarted
+

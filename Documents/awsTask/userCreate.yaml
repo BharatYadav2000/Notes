@@ -1,0 +1,27 @@
+
+- hosts: all
+  become: true
+  vars:
+    users:
+      - name: bharat
+        pub_key: "{{ lookup('file', '/home/bharat.yadav/Desktop/keys/bharat.pub') }}"
+      - name: chiranjeeb
+        pub_key: "{{ lookup('file', '/home/bharat.yadav/Desktop/keys/chiranjeeb.pub') }}"
+      - name: yishvendra
+        pub_key: "{{ lookup('file', '/home/bharat.yadav/Desktop/keys/yishvendra.pub') }}"
+      - name: sanchita
+        pub_key: "{{ lookup('file', '/home/bharat.yadav/Desktop/keys/sanchita.pub') }}"
+
+  tasks:
+    - name: Create new users
+      user:
+        name: "{{ item.name }}"
+        createhome: yes
+        shell: /bin/bash
+      with_items: "{{ users }}"
+    - name: Add public keys to authorized_keys
+      authorized_key:
+        user: "{{ item.name }}"
+        key: "{{ item.pub_key }}"
+      with_items: "{{ users }}"
+

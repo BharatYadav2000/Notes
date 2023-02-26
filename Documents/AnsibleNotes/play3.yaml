@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Transfer Files from Google Drive to EC2
+      shell: "--file-id 1VXtxu7WlBP7ZdvVoWtuQl1YZYNnwPExS --dest /home"

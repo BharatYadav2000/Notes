@@ -1,0 +1,17 @@
+ansible-inventory --list -y -i /home/ubuntu/ansible/hosts 
+                  
+ansible all -m ping -i /home/ubuntu/ansible/hosts --private-key=~/.ssh/anskey.pem
+				  OR
+ansible all -m ping -i /home/ubuntu/ansible/hosts --private-key=/home/ubuntu/.ssh/anskey.pem
+				  
+ansible all -a "free -h" -i /home/ubuntu/ansible/hosts --private-key=~/.ssh/anskey.pem
+
+ansible all -a "uptime" -i /home/ubuntu/ansible/hosts --private-key=~/.ssh/anskey.pem
+
+
+ansible all -m apt -a "upgrade=yes update_cache=yes cache_valid_time=86400" --become -i /home/ubuntu/ansible/hosts --private-key=/home/ubuntu/.ssh/raotest.pem
+
+ansible-playbook file.yaml -i /home/ubuntu/ansible/hosts --private-key=/home/ubuntu/.ssh/raotest.pem
+			         OR
+ansible-playbook /home/ubuntu/ansible/playbook/file.yaml -i /home/ubuntu/ansible/hosts --private-key=/home/ubuntu/.ssh/raotest.pem
+			   

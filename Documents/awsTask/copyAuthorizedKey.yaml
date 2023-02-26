@@ -1,0 +1,13 @@
+
+#copy file authorized_keys from localsystem to ec2
+
+
+---
+- name: Copy file to EC2 instance
+  hosts: all
+  become: true
+  tasks:
+  - name: Copy file to instance
+    copy:
+      src: /home/bharat.yadav/Desktop/authorized_keys
+      dest: /home/ubuntu/.ssh/authorized_keys
