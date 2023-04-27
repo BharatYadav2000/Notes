@@ -1,0 +1,18 @@
+kind: ReplicationController               
+apiVersion: v1
+metadata:
+  name: myreplica
+spec:
+  replicas: 3            
+  selector:        
+    myname: yadav                             
+  template:                
+    metadata:
+      name: temp1
+      labels:            
+        myname: yadav
+    spec:
+     containers:
+       - name: con1
+         image: ubuntu
+         command: ["/bin/bash", "-c", "while true; do echo rao; sleep 5 ; done"]

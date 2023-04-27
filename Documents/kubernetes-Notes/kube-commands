@@ -1,0 +1,35 @@
+kubectl apply -f pod1.yaml   //to create pod
+
+kubectl get pods
+kubectl get pods -o wide              //display ip of pods
+kubectl get pods --show-labels       //display assigned labels
+kubectl label pods pod1 name=pod11  //to assign label to pod
+kubectl label pods pod1 name=pod19 --overwrite    // Rename/overwrite label
+kubectl get pods -l name=pod11       // search/find specific pod by there label name
+
+kubectl get pods --all-namespaces   
+
+kubectl describe pod pod1           //to check pod assigned to which node
+
+kubectl delete pod pod1   //delete pod
+          OR
+kubectl delete -f pod1.yaml
+
+kubectl delete pod -l name=pod11    //delete pod using label name
+
+By default master node assign pod to any worker node.
+kubectl label nodes ip-172-31-60-44 hardware=t2-medium   //To assign pod to specific node.
+
+kubectl exec -it pod1 bash        //to exec/run container
+
+kubectl exec -it pod1 -c con1 bash      //to exec/run specific container inside single pod
+kubectl exec -it pod1 -c con2 bash
+
+kubectl get rc       //to display replicas of replica controller
+kubectl get rs       //to display replicas of replica set
+
+kubectl scale --replicas=6 rc -l myname=yadav      //for scale up & down OR to increase & decrease no. of pods replica controller
+kubectl scale --replicas=6 rs/pod1                  //for scale up & down OR to increase & decrease no. of pods in replica set
+
+kubectl delete -f pod4.yaml      //to delete all created pods in replica controller
+kubectl delete rs/pod1           //to delete all created pods in replica set

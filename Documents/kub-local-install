@@ -1,0 +1,32 @@
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add 
+sudo apt install curl 
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" 
+sudo apt-get install kubeadm kubelet kubectl 
+sudo apt-mark hold kubeadm kubelet kubectl
+kubeadm version 
+sudo swapoff -a 
+sudo hostnamectl set-hostname master-node 
+
+sudo hostnamectl set-hostname slave-node 
+  
+sudo rm /etc/containerd/config.toml
+systemctl restart containerd
+  
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+sudo grep cidr /etc/kubernetes/manifests/kube-* 
+ 
+ 
+mkdir  -p $HOME/ .kube 
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config 
+sudo chown $(id -u):$(id -g) $HOME/.kube/config 
+ 
+kubectl get nodes 
+ 
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl get pods --all-namespaces
+
+
+
+192.168.12.161
+ssh bharat@192.168.12.161
+rao@12345

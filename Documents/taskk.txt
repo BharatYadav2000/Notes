@@ -1,0 +1,54 @@
+###################################
+ansible 
+
+
+Lamp 
+
+
+apache - and
+nginx -
+
+site.example.com
+site2.example.com 
+
+php - 3 version 
+
+mysql and postgresql
+php- 
+
+SSL 
+
+
+###############################################
+
+Docker 
+
+
+node js (
+
+react 
+
+Developer > feature/branch 
+
+
+docker -image - run 
+
+code.js
+
+
+sjfajsdfl
+sjsdf
+
+
+npm install 
+npm run 
+
+Dev - ECS/EKS (Docker)
+qa
+uat
+prod 
+
+docker run image 8080 . 
+####################################
+
+

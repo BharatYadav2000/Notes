@@ -1,0 +1,17 @@
+
+
+
+sudo find / -name '*docker*'
+nslookup www.google.com
+docker attach con1
+docker port test1con
+
+docker network ls
+docker inspect bridge 
+bridge create a connection b/w container and internet ....by default it is enabled when cont. is created
+ping 172.17.0.1
+docker network create test1
+hostname -i
+hostname -I
+docker network create test1
+docker network connect test1 test1con
